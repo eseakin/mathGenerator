@@ -2,6 +2,6 @@
 
 Generates fun word problems based on user input.
 
-## To run:
+### To run:
 
 `npm start`
