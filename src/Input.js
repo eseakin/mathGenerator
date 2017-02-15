@@ -10,7 +10,8 @@ class Input extends Component {
       add: false,
       sub: false,
       mult: false,
-      div: false
+      div: false,
+      submitted: this.props.submitted
     };
   }
 
@@ -26,14 +27,14 @@ class Input extends Component {
 
   handleSubmit(event) {
     this.props.submit(this.state);
+    this.setState({submitted: true});
     event.preventDefault();
   }
 
   render() {
-    if(!this.props.submitted) {
+    if(!this.state.submitted) {
       return (
         <div className="Input">
-        {this.state.add}{this.state.sub}{this.state.mult}{this.state.div}
           <form onSubmit={this.handleSubmit.bind(this)}>
             Do you know <br />
             <label className="checkbox">
