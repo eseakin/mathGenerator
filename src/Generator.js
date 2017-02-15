@@ -5,8 +5,8 @@ class Generator extends Component {
     super(props);
 
     this.state = {
-      numAnimals: this.randInt(2, 5),
-      numFood: this.randInt(2, 5),
+      numAnimals: this.randInt(2, 4),
+      numFood: this.randInt(1, 3),
       animal: null,
       many: 'many'
     };
@@ -35,7 +35,7 @@ class Generator extends Component {
       this.setState({
         numAnimals: numAnimals * difficulty,
         numFood: numFood * difficulty
-      })
+      });
     }
   }
 
