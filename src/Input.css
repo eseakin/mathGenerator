@@ -1,0 +1,9 @@
+.checkbox {
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+.inputField {
+  margin: 10px 20px;
+  display: block;
+}
