@@ -8,7 +8,8 @@ class Input extends Component {
       animal: '',
       food: '',
       difficulty: '1',
-      submitted: this.props.submitted
+      submitted: this.props.submitted,
+      validSubmit: ''
     };
   }
 
@@ -23,8 +24,12 @@ class Input extends Component {
   }
 
   handleSubmit(event) {
-    this.props.submit(this.state);
-    this.setState({submitted: true});
+    if(this.state.animal !== '' && this.state.food !== '') {
+      this.props.handleSubmit(this.state);
+      this.setState({submitted: true});
+    } else {
+      this.setState({validSubmit: 'Please enter an animal and a food!'});
+    }
     event.preventDefault();
   }
 
@@ -55,7 +60,8 @@ class Input extends Component {
               <input type="text"  name="food" value={this.state.food} onChange={this.handleChange.bind(this)} />
             </label> <br />
             <input type="submit" value="Submit" />
-          </form>
+          </form>  <br /><br />
+            {this.state.validSubmit}
         </div>
       );
     } else {

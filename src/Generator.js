@@ -7,6 +7,8 @@ class Generator extends Component {
     this.state = {
       numAnimals: this.randInt(2, 5),
       numFood: this.randInt(2, 5),
+      animal: null,
+      many: 'many'
     };
 
   }
@@ -15,14 +17,35 @@ class Generator extends Component {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
+  componentWillReceiveProps(newProps) {
+    this.setState(newProps.settings);
+    
+    if(newProps.settings.food) {
+      const food = newProps.settings.food;
+      if(food[food.length - 1] !== 's') {
+        this.setState({many: 'much'});
+      }
+    }
 
+    if(newProps.settings.difficulty) {
+      const numAnimals = this.state.numAnimals;
+      const numFood = this.state.numFood;
+      const difficulty = newProps.settings.difficulty;
+
+      this.setState({
+        numAnimals: numAnimals * difficulty,
+        numFood: numFood * difficulty
+      })
+    }
+  }
 
   render() {
-    if(this.props.settings.animal !== '') {
+    if(this.state.animal !== null) {
       return (
         <div className="Generator">
           Difficulty: {this.props.settings.difficulty} <br />
-          There are {this.state.numAnimals} {this.props.settings.animal}s at the zoo. They need to eat {this.state.numFood} {this.props.settings.food} per day to survive.
+          There are {this.state.numAnimals} {this.state.animal}s at the zoo. They need to eat {this.state.numFood} {this.state.food} per day to survive. <br />
+          How {this.state.many} total {this.state.food} do the {this.state.animal}s eat in a day?
         </div>
       );
       

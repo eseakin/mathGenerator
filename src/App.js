@@ -16,9 +16,9 @@ class App extends Component {
     };
   }
 
-  submit(state) {
+  handleSubmit(state) {
     this.setState(state);
-    this.setState({submitted: true})
+    this.setState({submitted: true});
   }
 
 
@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Big Sexy Math Problem Generator</h1>
-        <Input submit={this.submit.bind(this)} submitted={this.state.submitted} />
+        <Input handleSubmit={this.handleSubmit.bind(this)} submitted={this.state.submitted} />
         <Generator settings={this.state} />
       </div>
     );
