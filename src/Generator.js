@@ -4,6 +4,10 @@ class Generator extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      numAnimals: this.randInt(2, 5),
+      numFood: this.randInt(2, 5),
+    };
 
   }
 
@@ -14,10 +18,10 @@ class Generator extends Component {
 
 
   render() {
-    if(this.props.animal !== '') {
+    if(this.props.settings.animal !== '') {
       return (
         <div className="Generator">
-          There are {this.randInt(2,5)} {this.props.animal}s at the zoo.
+          There are {this.state.numAnimals} {this.props.settings.animal}s at the zoo. They need to eat {this.state.numFood} {this.props.settings.food} per day to survive.
         </div>
       );
       
