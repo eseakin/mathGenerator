@@ -7,3 +7,7 @@
   margin: 10px 20px;
   display: block;
 }
+
+input, select {
+  margin: 0 10px;
+}
