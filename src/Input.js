@@ -7,10 +7,7 @@ class Input extends Component {
     this.state = {
       animal: '',
       food: '',
-      add: false,
-      sub: false,
-      mult: false,
-      div: false,
+      difficulty: '1',
       submitted: this.props.submitted
     };
   }
@@ -36,22 +33,16 @@ class Input extends Component {
       return (
         <div className="Input">
           <form onSubmit={this.handleSubmit.bind(this)}>
-            Do you know <br />
-            <label className="checkbox">
-              <input type="checkbox" name="add" checked={this.state.add} onChange={this.handleChange.bind(this)} />
-              Addition?
-            </label>
-            <label className="checkbox">
-              <input type="checkbox" name="sub" checked={this.state.sub} onChange={this.handleChange.bind(this)} />
-              Subtraction?
-            </label> <br />
-            <label className="checkbox">
-              <input type="checkbox" name="mult" checked={this.state.mult} onChange={this.handleChange.bind(this)} />
-              Multiplication?
-            </label>
-            <label className="checkbox">
-              <input type="checkbox" name="div" checked={this.state.div} onChange={this.handleChange.bind(this)} />
-              Division?
+            <label>
+              How much have you learned?
+              <select name="difficulty" value={this.state.difficulty} onChange={this.handleChange.bind(this)}>
+                <option value="1">Addition</option>
+                <option value="2">Subtraction</option>
+                <option value="3">Multiplication</option>
+                <option value="4">Division</option>
+                <option value="5">Decimals</option>
+                <option value="6">Percents</option>
+              </select>
             </label> <br /><br />
 
             <label className="inputField">

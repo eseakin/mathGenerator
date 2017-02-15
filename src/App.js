@@ -12,10 +12,7 @@ class App extends Component {
       submitted: false,
       animal: '', 
       food: '',
-      add: false,
-      sub: false,
-      mult: false,
-      div: false
+      difficulty: 0
     };
   }
 
