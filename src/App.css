@@ -22,3 +22,8 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(60deg); }
 }
+
+.container {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+}
